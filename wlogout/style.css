@@ -1,0 +1,64 @@
+ @define-color bg #232a2e;
+ @define-color fg #f2efdf;
+ @define-color accent #a7c080;
+ @define-color hover_bg #4f585e;
+ @define-color hover_fg #a7c080;
+
+
+ * {
+     font-family: "Rubik", "Font Awesome 6 Free";
+     font-size: 18px;
+     background-image: none;
+     box-shadow: none;
+     font-weight: 400;
+ }
+
+ #lock {
+     background-image: url("./icons/lock.svg");
+ }
+
+ #logout {
+     background-image: url("./icons/logout.svg");
+ }
+
+ #suspend {
+     background-image: url("./icons/suspend.svg");
+ }
+
+ #hibernate {
+     background-image: url("./icons/hibernate.svg");
+ }
+
+ #shutdown {
+     background-image: url("./icons/shutdown.svg");
+ }
+
+ #reboot {
+     background-image: url("./icons/reboot.svg");
+ }
+
+
+ window {
+     background-color: @bg;
+ }
+
+ button {
+     min-width: 80px;
+     background-size: 25%;
+     background-repeat: no-repeat;
+     background-position: center;
+     border-radius: 12px;
+     transition: all 0.3s;
+     background-color: @hover_bg;
+     color: @fg;
+     border: 1px solid transparent;
+ }
+
+
+ button:hover,
+ button:focus {
+     border-radius: 100%;
+     background-color: @hover_bg;
+     color: @hover_fg;
+     border-color: transparent;
+ }

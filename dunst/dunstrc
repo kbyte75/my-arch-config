@@ -1,0 +1,44 @@
+[global]
+# General settings
+font = "Rubik 10"
+frame_width = 1
+corner_radius = 8
+origin = top-center           # Center notifications with specific size
+offset = 6
+timeout = 5      
+padding = 12                  # padding in y
+horizontal_padding = 20         # padding in x
+max_icon_size = 32
+icon_theme = "MacTahoe"
+background = "#ECF0F1"             # Default background color
+foreground = "#414952ff"             # Default text color
+highlight = "#3498DB"              # Highlight color for specific text
+frame_color = "#414952ff"            # Border color
+text_icon_padding=10
+horizontal_padding=10
+width = (0, 500) # width between 0 and 300
+progress_bar = false
+transparency = 35
+notification_limit = 1
+indicate_hidden = false
+# history_length = 1
+
+
+[urgency_low]
+background = "#2e3436"
+foreground = "#ffffff"
+timeout = 4
+
+[urgency_normal]
+background = "#414b52ff"
+foreground = "#f2efdf"
+timeout = 4
+
+[urgency_critical]
+background = "#E74C3C"
+foreground = "#ffffff"
+timeout = 4
+
+# Custom Sounds
+# sound_file = "/usr/share/sounds/ubuntu/stereo/bell.oga"
+
