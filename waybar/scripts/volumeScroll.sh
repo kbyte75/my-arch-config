@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Close all previous notifications (if using dunst)
-# dunstctl close-all
-
 # Get the current volume as an integer (stripping '%' for calculation)
 current_volume=$(pactl get-sink-volume @DEFAULT_SINK@ | awk -F'/' '{print $2}' | tr -d ' ' | sed 's/%//')
 
