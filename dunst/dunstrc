@@ -2,23 +2,20 @@
 # General settings
 font = "Rubik 10"
 frame_width = 1
-corner_radius = 8
+corner_radius = 12
 origin = top-center           # Center notifications with specific size
-offset = 6
-timeout = 5      
+offset = 6   
 padding = 12                  # padding in y
-horizontal_padding = 20         # padding in x
+horizontal_padding = 28         # padding in x
 max_icon_size = 32
-icon_theme = "MacTahoe"
 background = "#ECF0F1"             # Default background color
 foreground = "#414952ff"             # Default text color
 highlight = "#3498DB"              # Highlight color for specific text
 frame_color = "#414952ff"            # Border color
 text_icon_padding=10
 horizontal_padding=10
-width = (0, 500) # width between 0 and 300
-progress_bar = false
-transparency = 35
+width = (0, 600) # width between 0 and 300
+transparency = 40
 notification_limit = 1
 indicate_hidden = false
 # history_length = 1
@@ -30,7 +27,7 @@ foreground = "#ffffff"
 timeout = 4
 
 [urgency_normal]
-background = "#414b52ff"
+background = "#232a2e"
 foreground = "#f2efdf"
 timeout = 4
 

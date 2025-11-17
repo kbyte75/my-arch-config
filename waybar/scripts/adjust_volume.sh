@@ -20,7 +20,7 @@ update_volume() {
         fi
 
         # Notification text for increasing volume
-        notify_text="Volume increasing $new_volume%"
+        notify_text="VOLUME INCREASING $new_volume%"
 
         # Set the icon for increasing volume
         icon="~/.config/waybar/icons/volume_up.svg"
@@ -34,7 +34,7 @@ update_volume() {
         fi
 
         # Notification text for decreasing volume
-        notify_text="Volume decreasing $new_volume%"
+        notify_text="VOLUME DECREASING $new_volume%"
     fi
 
     # Set the new volume
@@ -45,9 +45,9 @@ update_volume() {
 
     # Send a notification with the updated volume action and icon
     if [[ "$current_volume" -eq 0 ]]; then
-        notify-send "The volume is muted." -i ~/.config/waybar/icons/volume_mute.svg -t 1000 -r 9999
+        notify-send "MUTED" -i ~/.config/waybar/icons/volume_mute.svg -t 1000 -r 9999
     elif [[ "$current_volume" -eq 100 ]]; then
-        notify-send "Maximum volume reached" -i ~/.config/waybar/icons/volume_max.svg -t 1000 -r 9999
+        notify-send "VOLUME MAXED" -i ~/.config/waybar/icons/volume_max.svg -t 1000 -r 9999
     else
         # Send the notification with the action text and the corresponding icon
         notify-send "$notify_text" -i ~/.config/waybar/icons/volume_up.svg -t 1000 -r 9999

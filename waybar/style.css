@@ -1,17 +1,16 @@
 @define-color background #232a2e;
 @define-color text_color #f2efdf;
-@define-color logo_color #dbbcf7;
+@define-color warning_color #c40404;
 @define-color hover_background #6a706b;
 @define-color hover_text_color #dbbcf7;
 @define-color tooltip_background #293136;
 @define-color tooltip_border #dbbcf7;
 
 * {
-  min-height: 0;
-  min-width: 0;
+  margin: 0;
   font-family: "Rubik", "JetBrainsMono NFP";
-  font-size: 16px;
-  font-weight: 400;
+  font-size: 14px;
+  font-weight: 500;
   border: none;
 }
 
@@ -19,38 +18,55 @@ window#waybar {
   transition-property: background-color;
   transition-duration: 0.5s;
   border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, .15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   background-color: @background;
 }
-
-#custom-logo {
-  font-size: 22px;
-  margin-left: 14px;
-}
-
-/* window#waybar.empty #window {
-  background-color: @background;
-} */
 
 #temperature,
 #cpu,
 #window,
 #network,
 #memory,
+#disk,
 #clock,
 #pulseaudio,
 #bluetooth,
 #workspaces button,
 #custom-notification,
-#custom-weather {
+#custom-weather,
+#custom-screenshot {
+  padding: 0 6px;
   color: @text_color;
 }
 
-#window {
- 
-  min-width: 140px;
+#custom-space {
+  min-width: 60px;
 }
 
+tooltip {
+  border-radius: 4px;
+  background-color: @hover_background;
+}
+
+/* =============================== LEFT SECTION =============================== */
+#custom-logo {
+  color: aquamarine;
+  min-width: 28px;
+  font-size: 20px;
+  margin-left: 14px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  border-radius: 100%;
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+#custom-title {
+  margin-left: 8px;
+}
+#temperature.critical {
+  color: @warning_color;
+}
+/* =============================== MIDDLE SECTION =============================== */
 #workspaces {
   margin: 0 40px;
 }
@@ -58,7 +74,7 @@ window#waybar {
 #workspaces button {
   border-radius: 100%;
   margin: 6px 0;
-  min-width: 10px;
+  min-width: 16px;
   border: none;
 }
 
@@ -69,46 +85,30 @@ window#waybar {
   border: none;
 } */
 
-
 #workspaces button:hover,
 #workspaces button.active {
   transition: all 0.3s cubic-bezier(0.39, 0.575, 0.565, 1);
-  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
   background-color: @hover_background;
 }
 
-#custom-logo {
-  color: #89b4fa;
-}
-
-#custom-notification {
-  margin-top: 2px;
-  margin-left: 60px;
-}
-
-#custom-space {
-  min-width: 60px;
+/* =============================== RIGHT SECTION =============================== */
+#tray {
+  margin-right: 8px;
 }
 
 #bluetooth {
   /* padding: 0.3rem 0.6rem; */
-  font-size: 18px;
+  font-size: 16px;
   margin-top: 1px;
 }
-
-
-#network {
-  margin-right: 4px;
-  margin-left: 4px;
+#custom-screenshot {
+  font-size: 18px;
 }
-
+#network {
+  margin-right: 6px;
+}
 
 #custom-power {
   color: #f38ba8;
   margin-right: 14px;
-}
-
-tooltip {
-  border-radius: 4px;
-  background-color: @hover_background;
 }
