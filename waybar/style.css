@@ -35,7 +35,7 @@ window#waybar {
 #custom-notification,
 #custom-weather,
 #custom-screenshot {
-  padding: 0 6px;
+  padding: 0 8px;
   color: @text_color;
 }
 
@@ -73,8 +73,8 @@ tooltip {
 
 #workspaces button {
   border-radius: 100%;
-  margin: 6px 0;
-  min-width: 16px;
+  margin: 5px 1px;
+  min-width: 14px;
   border: none;
 }
 
@@ -111,4 +111,9 @@ tooltip {
 #custom-power {
   color: #f38ba8;
   margin-right: 14px;
+}
+
+#menu {
+  margin-top: 65px;
+  margin-right: 0;
 }

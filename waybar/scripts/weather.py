@@ -103,7 +103,7 @@ try:
     )
 
     out = {
-        "text": f"{icon} {temp}",
+        "text": f" {temp}", #{icon}
         "alt": status,
         "tooltip": tooltip,
         # "class": [status_code],  # List for CSS

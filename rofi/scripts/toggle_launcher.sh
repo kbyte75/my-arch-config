@@ -2,5 +2,5 @@
 if pgrep -x rofi > /dev/null; then
     pkill rofi
 else
-    rofi -show drun -themes ~/.config/rofi/config.rasi
+    rofi -show drun -theme launcher.rasi
 fi
