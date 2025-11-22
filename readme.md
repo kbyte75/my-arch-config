@@ -68,7 +68,7 @@
 
 ### - KEYBINDINGS
 
-<table>
+<table width="100%">
   <tbody>
     <tr><td>SUPER + RETURN</td><td>OPEN TERMINAL</td></tr>
     <tr><td>SUPER + D</td><td>CLOSE ACTIVE WINDOW</td></tr>
