@@ -12,6 +12,7 @@
   "fixed-center": true,
   "modules-left": [
     "custom/logo",
+    "custom/separator", // "window",
     "custom/title", // "window",
     "custom/space",
     "cpu",
@@ -33,31 +34,61 @@
 
   // ========================================  LEFT SECTION  ========================================
   "custom/logo": {
+    "tooltip": false,
     "format": "\uf313"
   },
 
   // SHOWS THE APP TITLE IN UPPERCASE
   "custom/title": {
+    "interval": 1,
     "format": "{text}",
-    "exec": "~/.config/waybar/scripts/app_title.sh",
     "return-type": "json",
-    "interval": 1
+    "exec": "~/.config/waybar/scripts/app_title.sh"
   },
 
-  // APP TITLE
-  // "hyprland/window": {
-  //   "format": "{class}"
-  // },
+  "cpu": {
+    "interval": 1,
+    "tooltip": false,
+    "format": "\uf4bc {usage}%",
+    "states": {
+      "warning": 60,
+      "critical": 80
+    }
+  },
+
+  "memory": {
+    "interval": 1,
+    "format": "\uefc5 {percentage}%",
+    "tooltip-format": "{used:0.1f}GB / {total}GB",
+    "states": {
+      "warning": 60,
+      "critical": 80
+    }
+  },
+
+  "disk": {
+    "interval": 30,
+    "format": "\uf07c {specific_free:0.0f}GB",
+    "path": "/",
+    "unit": "GB"
+  },
+
+  "temperature": {
+    "interval": 1,
+    "tooltip": false,
+    "thermal-zone": 2,
+    "critical-threshold": 70,
+    "format": "\uf2c9 {temperatureC}°C",
+    "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input"
+  },
 
   //======================================== MIDDLE SECTION ==============================
   "hyprland/workspaces": {
-    "persistent-workspaces": {
-      "*": 7
-    },
-    "on-click": "activate",
+    // "format": "\uf444",
     "all-outputs": true,
-    "disable-scroll": false,
     "active-only": false,
+    "disable-scroll": false,
+    "persistent-workspaces": { "*": 7 },
     "on-scroll-up": "hyprctl dispatch workspace -1",
     "on-scroll-down": "hyprctl dispatch workspace +1"
   },
@@ -78,53 +109,27 @@
   //   "on-scroll-down": "hyprctl dispatch workspace +1"
   // },
 
-  "cpu": {
-    "format": "\uf4bc {usage}%",
-    "tooltip": false,
-    "interval": 1
-  },
-
-  "memory": {
-    "format": "\uefc5 {percentage}%",
-    "interval": 1
-  },
-
-  "disk": {
-    "interval": 30,
-    "format": "\uf07c {specific_free:0.0f}GB",
-    "path": "/",
-    "unit": "GB"
-  },
-
-  "temperature": {
-    "thermal-zone": 2,
-    "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-    "critical-threshold": 70,
-    "format-critical": "\ue350 {temperatureC}°C",
-    "format": "\uf2c9 {temperatureC}°C",
-    "interval": 1,
-    "tooltip": false
-  },
-
   // ========================================  RIGHT SECTION  ========================================
 
   "tray": {
-    "show-passive-items": true,
-    "spacing": 10
+    "spacing": 10,
+    "show-passive-items": true
   },
 
   "custom/weather": {
-    "format": "{text}",
-    "tooltip": false,
-    "exec": "python3 ~/.config/waybar/scripts/weather.py",
+    "escape": true,
     "interval": 300,
+    "tooltip": true,
+    "format": "{text}",
     "return-type": "json",
-    "escape": true
+    "tooltip-format": "WEATHER",
+    "exec": "python3 ~/.config/waybar/scripts/weather.py"
   },
 
   "custom/screenshot": {
+    "tooltip": true,
     "format": "\udb86\udcf5",
-    "tooltip": false,
+    "tooltip-format": "SCREENSHOT",
     "on-click": "grim -g \"$(slurp)\" ~/Pictures/Screenshots/$(date +'%Y-%m-%d_%H-%M-%S').png"
   },
 
@@ -136,12 +141,12 @@
 
   "bluetooth": {
     "format": "\udb80\udcaf",
-    "format-disabled": "\udb80\udcb2", // an empty format will hide the module
+    "format-disabled": "\udb80\udcb2",
     "format-connected": "\udb80\udcb1 {num_connections} connected",
     "tooltip-format": "{controller_alias}\t{controller_address}",
     "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-    "on-click": "~/.config/waybar/scripts/toggle_bluetooth.sh",
+    "on-click": "~/.config/waybar/scripts/connection.sh bluetooth",
     "on-scroll-up": "~/.config/waybar/scripts/adjust_volume.sh up",
     "on-scroll-down": "~/.config/waybar/scripts/adjust_volume.sh down"
   },
@@ -157,7 +162,7 @@
     "tooltip-format-disconnected": "Disconnected",
     "max-length": 60,
     "tooltip": true,
-    "on-click": "",
+    "on-click": "~/.config/waybar/scripts/connection.sh wifi",
     "on-scroll-up": "~/.config/waybar/scripts/adjust_volume.sh up",
     "on-scroll-down": "~/.config/waybar/scripts/adjust_volume.sh down"
   },
@@ -184,5 +189,9 @@
     "tooltip": false,
     "on-scroll-up": "~/.config/waybar/scripts/adjust_volume.sh up",
     "on-scroll-down": "~/.config/waybar/scripts/adjust_volume.sh down"
+  },
+  "custom/separator": {
+    "format": "|",
+    "tooltip": false
   }
 }

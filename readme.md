@@ -1,14 +1,22 @@
 # My ARCH-Hyprland Config
 
 1. Download or clone this repository.
-2. Copy all files to `~/.config`, except for `nanorc`, `sddm-login-theme`.
+2. Copy all files to `~/.config`, except `nanorc`, `sddm-login-theme`.
 3. Copy `nanorc` in `/etc/`.
 4. Copy `sddm-login-theme` in `/usr/share/sddm/themes`.
 
-## Install Dependencies
+## Required Dependencies
 
 ```bash
- sudo pacman -S waybar wlogout swww rofi fish fastfetch sddm kitty make cmake base-devel git nano python-pyquery --needed
+ sudo pacman -S waybar swww rofi fish fastfetch sddm kitty make cmake base-devel git nano python-pyquery grim slurp nwg-look nautilus font-manager blueman nm-connection-editor --needed
+```
+
+## Create Folder
+
+```bash
+  mkdir -p ~/Pictures
+  mkdir -p ~/Pictures/Screenshots
+  mkdir -p ~/Pictures/Wallpapers
 ```
 
 ## Install Yay
@@ -31,17 +39,10 @@
  chsh -s /usr/local/bin/fish
 ```
 
-## Screenshots
-
-```bash
- sudo pacman -S grim slurp --noconfirm
- mkdir -p ~/Pictures/Screenshots
-```
-
 ## Download Fonts, Themes, Cursor, Icon
 
-- **Bibata Modern Ice Cursor**: [Click](https://github.com/ful1e5/Bibata_Cursor)
-- **WhitSur Icons**: [Click](https://github.com/vinceliuice/WhiteSur-icon-theme)
+- **Bibata Modern Ice Cursor**: [Click](https://www.gnome-look.org/p/1197198)
+- **MacTahoe Icon Theme**: [Click](https://www.gnome-look.org/p/2299216)
 
 - **Rubik**: [Link](https://fonts.google.com/selection?query=rubik)
 - **FiraCode Nerd Font**: [Link](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/FiraCode.zip)
@@ -50,24 +51,10 @@
 ## Set permissions
 
 ```bash
- sudo chmod +x ~/.config/hypr/scripts/switch_wallpaper.sh
- sudo chmod +x ~/.config/hypr/scripts/reload_waybar.sh
- sudo chmod +x ~/.config/hypr/scripts/toggle_rofi.sh
- sudo chmod +x ~/.config/hypr/scripts/toggle_bar.sh
- sudo chmod +x ~/.config/hypr/scripts/toggle_clipboard.sh
-
- sudo chmod +x ~/.config/waybar/scripts/adjust_volume.sh
- sudo chmod +x ~/.config/waybar/scripts/app_title.sh
- sudo chmod +x ~/.config/waybar/scripts/toggle_bluetooth.sh
+ sudo chmod +x ~/.config/hypr/scripts/*.sh
+ sudo chmod +x ~/.config/waybar/scripts/*.sh
+ sudo chmod +x ~/.config/rofi/scripts/*.sh
  sudo chmod +x ~/.config/waybar/scripts/weather.py
 ```
 
-## Setup Cursors, Theme, Icons, Fonts
-
-```bash
- gsettings set org.gnome.desktop.interface cursor-theme 'Bibata-Modern-Ice'
- gsettings set org.gnome.desktop.interface icon-theme 'WhiteSur-green'
- gsettings set org.gnome.desktop.interface font-name 'Rubik Medium 10'
- gsettings set org.gnome.desktop.interface document-font-name 'JetBrains Mono 10'
- gsettings set org.gnome.desktop.interface monospace-font-name 'JetBrains Mono 10'
-```
+### Setup Cursor, Icon, Fonts with nwg-look
