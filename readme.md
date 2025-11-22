@@ -64,7 +64,7 @@
 
 ### - FASTFETCH
 
-![Alt text](https://github.com/kbyte75/my-arch-config/blob/main/previews/fastfetch_&_fish.png?raw=true)
+![Alt text](https://github.com/kbyte75/my-arch-config/blob/main/previews/fish_&_fastfetch.png?raw=true)
 
 ### - KEYBINDINGS
 
