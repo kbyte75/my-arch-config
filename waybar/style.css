@@ -1,8 +1,10 @@
-@define-color background rgba(60, 60, 60, 0.8); /* * #232a2e; * */
-@define-color theme #c1e010;
-@define-color text_color #f2efdf;
-@define-color hover_background rgba(255, 255, 255, 0.12);
-@define-color border rgba(255, 255, 255, 0.3);
+@import "colors.css";
+
+/* @define-color background rgba(60, 60, 60, 0.8); */
+/* @define-color primary #c1e010; */
+/* @define-color text_color #f2efdf; */
+@define-color light_bg rgba(255, 255, 255, 0.12);
+@define-color border_color rgba(255, 255, 255, 0.3);
 
 * {
   margin: 0;
@@ -10,36 +12,15 @@
   font-size: 14px;
   font-weight: 400;
   border: none;
+  color: #f2efdf;
 }
 
 window#waybar {
   transition-property: background-color;
   transition-duration: 0.5s;
   border-radius: 8px;
-  background-color: @background;
-  border: 1px solid @border;
-}
-
-#temperature,
-#cpu,
-#window,
-#network,
-#memory,
-#disk,
-#clock,
-#pulseaudio,
-#bluetooth,
-#workspaces button,
-#custom-notification,
-#custom-weather,
-#custom-power,
-#custom-logo,
-#custom-title,
-#custom-screenshot {
-  margin: 5px 0;
-  padding: 0 6px;
-  border-radius: 4px;
-  color: @text_color;
+  background-color: rgba(60, 60, 60, 0.8);
+  border: 1px solid @border_color;
 }
 
 #custom-space {
@@ -48,19 +29,23 @@ window#waybar {
 
 #custom-separator {
   min-width: 12px;
-  font-size: 12px;
+  font-size: 10px;
   margin: 5px 0;
-  font-weight: 600;
-  background-color: @hover_background;
-  color: @theme;
+  font-weight: 800;
+  color: #f2efdf;
+  background-color: @light_bg;
 }
 
 tooltip {
   border-radius: 6px;
-  border: 1px solid @border;
-  background-color: @background;
+  background-color: @secondary;
+  border: 1px solid @primary;
 }
 
+tooltip label {
+  font-size: 13px;
+  color: @background;
+}
 /* =============================== LEFT SECTION =============================== */
 
 #custom-logo,
@@ -68,22 +53,28 @@ tooltip {
   font-weight: 500;
   padding: 0 4px;
   border-radius: 0px;
-  background-color: @hover_background;
+  background-color: @light_bg;
 }
 
 #custom-logo {
-  color: @theme;
   font-size: 20px;
-  margin-left: 5px;
+  margin: 5px 0 5px 5px;
   border-top-left-radius: 6px;
   border-bottom-left-radius: 6px;
+  color: @primary;
 }
 
 #custom-title {
+  margin: 5px 0 5px 0;
   padding-right: 8px;
   border-top-right-radius: 6px;
   border-bottom-right-radius: 6px;
 }
+
+#memory {
+  margin: 0 12px;
+}
+
 #temperature.critical,
 #memory.critical,
 #cpu.critical {
@@ -96,27 +87,6 @@ tooltip {
   color: #cad806;
 }
 /* =============================== MIDDLE SECTION =============================== */
-button:hover {
-  background-color: @hover_background;
-}
-#workspaces {
-  /* padding: 0 6px; */
-  margin: 6px 40px;
-  border-radius: 6px;
-  background-color: @hover_background;
-}
-
-#workspaces button {
-  font-size: 8px;
-  border-radius: 0;
-  margin: 0;
-  min-width: 18px;
-  border: none;
-  transition: all 0.3s ease-in;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-}
-
 /* FOR APP ICONS */
 /* #workspaces button {
   border-radius: 100%;
@@ -124,14 +94,35 @@ button:hover {
   border: none;
 } */
 
+#workspaces {
+  margin: 5px 0;
+  border-radius: 4px;
+  background-color: @light_bg;
+}
+
+#workspaces button {
+  border-radius: 0;
+  padding: 0 6px;
+  min-width: 20px;
+  transition: border 0.3s ease-in;
+}
+
+#workspaces button:hover {
+  border-radius: 5px;
+  color: @background;
+  background-color: @primary;
+}
+
 #workspaces button.active {
-  font-size: 32px;
-  /* transition: all 0.3s cubic-bezier(0.39, 0.575, 0.565, 1); */
-  border-bottom-left-radius: 2px;
-  border-bottom-right-radius: 2px;
-  color: @theme;
-  background-color: @hover_background;
-  border-bottom: 2px solid @hover_background;
+  color: @primary;
+  border-bottom: 2px solid @primary;
+}
+
+#workspaces button:nth-child(1).active {
+  border-bottom-left-radius: 4px;
+}
+#workspaces button:nth-child(7).active {
+  border-bottom-right-radius: 4px;
 }
 
 @keyframes switch {
@@ -146,25 +137,34 @@ button:hover {
   margin-right: 8px;
 }
 
-#bluetooth {
-  font-size: 16px;
+#custom-weather {
+  margin-left: 12px;
 }
 
 #custom-screenshot {
   font-size: 18px;
+  margin: 5px 0 5px 8px;
+  padding: 0 8px;
+  border-radius: 5px;
 }
+
 #custom-screenshot:hover {
   transition: all 0.3s ease-in-out;
-  background-color: @hover_background;
+  background-color: @light_bg;
+}
+
+#bluetooth {
+  font-size: 16px;
 }
 
 #bluetooth,
 #network,
 #custom-power {
+  margin: 5px 0;
   min-width: 16px;
   padding: 0 4px;
   border-radius: 0px;
-  background-color: @hover_background;
+  background-color: @light_bg;
 }
 
 #bluetooth,
@@ -174,7 +174,7 @@ button:hover {
   border-bottom-left-radius: 6px;
 }
 #custom-power {
-  color: @theme;
+  color: @primary;
   margin-right: 5px;
   padding: 0 6px;
   border-top-right-radius: 6px;

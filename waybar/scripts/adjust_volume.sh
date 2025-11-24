@@ -8,6 +8,7 @@ update_volume() {
     # Get the volume action and percentage
     action=$1
     percentage=$2
+   
 
     # Calculate the new volume based on the action
     if [[ "$action" == "up" ]]; then
@@ -19,11 +20,6 @@ update_volume() {
             new_volume=100
         fi
 
-        # Notification text for increasing volume
-        notify_text="VOLUME INCREASING $new_volume%"
-
-        # Set the icon for increasing volume
-        icon="~/.config/waybar/icons/volume_up.svg"
     elif [[ "$action" == "down" ]]; then
         # Decrease volume by the specified percentage
         new_volume=$(($current_volume - $percentage))
@@ -33,8 +29,6 @@ update_volume() {
             new_volume=0
         fi
 
-        # Notification text for decreasing volume
-        notify_text="VOLUME DECREASING $new_volume%"
     fi
 
     # Set the new volume
@@ -42,16 +36,17 @@ update_volume() {
 
     # Update the current volume after change
     current_volume=$new_volume
-
+    notify_text="VOLUME $new_volume%"
     # Send a notification with the updated volume action and icon
-    if [[ "$current_volume" -eq 0 ]]; then
-        notify-send "MUTED" -i ~/.config/waybar/icons/volume_mute.svg -t 1000 -r 9999
-    elif [[ "$current_volume" -eq 100 ]]; then
-        notify-send "VOLUME MAXED" -i ~/.config/waybar/icons/volume_max.svg -t 1000 -r 9999
-    else
-        # Send the notification with the action text and the corresponding icon
-        notify-send "$notify_text" -i ~/.config/waybar/icons/volume_up.svg -t 1000 -r 9999
-    fi
+    if [[ "$current_volume" == 0 ]]; then
+        notify-send "MUTED" -i $HOME/.config/waybar/icons/volume-muted.svg -t 1000 -r 9999
+    elif [[ "$current_volume" -lt 51 ]]; then
+        notify-send "$notify_text" -i $HOME/.config/waybar/icons/volume-low.svg -t 1000 -r 9999
+    elif [[ "$current_volume" -lt 100 ]]; then
+        notify-send "$notify_text" -i $HOME/.config/waybar/icons/volume-medium.svg -t 1000 -r 9999
+    else 
+        notify-send "MAXED" -i $HOME/.config/waybar/icons/volume-high.svg -t 1000 -r 9999
+   fi
 }
 
 # If no argument is passed, increase volume by 5%

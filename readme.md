@@ -31,7 +31,7 @@
 ## Install oh-my-posh
 
 ```bash
- yay -S oh-my-posh --noconfirm
+ yay -S oh-my-posh hypremoji --noconfirm
 ```
 
 ## Change Default Shell to Fish
@@ -78,6 +78,7 @@
     <tr><td>SUPER + C</td><td>OPEN VSCODIUM</td></tr>
     <tr><td>SUPER + M</td><td>OPEN MOTRIX</td></tr>
     <tr><td>SUPER + W</td><td>OPEN WAYDROID</td></tr>
+    <tr><td>SUPER + .</td><td>OPEN EMOJI PICKER</td></tr>
     <tr><td>SUPER + SHIFT + F</td><td>TOGGLE FULLSCREEN</td></tr>
     <tr><td>SUPER + SPACE</td><td>TOGGLE FLOATING</td></tr>
     <tr><td>SUPER + P</td><td>SELECT AREA SCREENSHOT</td></tr>

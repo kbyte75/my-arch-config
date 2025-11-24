@@ -1,11 +1,10 @@
 {
   "layer": "top",
   "position": "top",
-  "height": 40,
+  // "height": 40,
   "margin-top": 4,
   "margin-right": 4,
   "margin-left": 4,
-  // "spacing": 8,
   "exclusive": true,
   "gtk-layer-shell": true,
   "passthrough": false,
@@ -35,7 +34,10 @@
   // ========================================  LEFT SECTION  ========================================
   "custom/logo": {
     "tooltip": false,
-    "format": "\uf313"
+    "format": "",
+    "on-click": "~/.config/rofi/scripts/toggle_launcher.sh",
+    "on-scroll-up": "~/.config/waybar/scripts/brightness.sh up",
+    "on-scroll-down": "~/.config/waybar/scripts/brightness.sh down"
   },
 
   // SHOWS THE APP TITLE IN UPPERCASE
@@ -43,7 +45,9 @@
     "interval": 1,
     "format": "{text}",
     "return-type": "json",
-    "exec": "~/.config/waybar/scripts/app_title.sh"
+    "exec": "~/.config/waybar/scripts/app_title.sh",
+    "on-scroll-up": "~/.config/waybar/scripts/brightness.sh up",
+    "on-scroll-down": "~/.config/waybar/scripts/brightness.sh down"
   },
 
   "cpu": {
@@ -84,7 +88,6 @@
 
   //======================================== MIDDLE SECTION ==============================
   "hyprland/workspaces": {
-    // "format": "\uf444",
     "all-outputs": true,
     "active-only": false,
     "disable-scroll": false,
@@ -120,7 +123,7 @@
     "escape": true,
     "interval": 300,
     "tooltip": true,
-    "format": "{text}",
+    "format": "{text}",
     "return-type": "json",
     "tooltip-format": "WEATHER",
     "exec": "python3 ~/.config/waybar/scripts/weather.py"

@@ -8,17 +8,19 @@ location_id = "f370fc9f1e5d07401a72fab32be4e1abe8f8f9df412cbaef3110e44cbf45cc56"
 unit = "metric"
 forecast_type = "Daily"
 
+
+#   
 weather_icons = {
-    "haze": "󰼰",
+    "haze": "󰖞",
     "clearNight": "󰖔",
-    "cloudyFoggyDay": "󰖑",
-    "cloudyFoggyNight": "󰖑",
-    "rainyDay": "󰖖",
-    "rainyNight": "󰖖",
-    "snowyIcyDay": "󰼶",
-    "snowyIcyNight": "󰼶",
+    "cloudyFoggyDay": "",
+    "cloudyFoggyNight": "",
+    "rainyDay": "",
+    "rainyNight": "",
+    "snowyIcyDay": "",
+    "snowyIcyNight": "",
     "severe": "󰙾",
-    "default": "󰖑",
+    "default": "",
 }
 
 _l = "en-IN" if unit == "metric" else "en-US"
@@ -103,7 +105,7 @@ try:
     )
 
     out = {
-        "text": f" {temp}", #{icon}
+        "text": f"{icon} {temp}", #{icon}
         "alt": status,
         "tooltip": tooltip,
         # "class": [status_code],  # List for CSS
