@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
     <object class="GtkMenu" id="menu">
-     
-      <child>
+       <child>
             <object class="GtkMenuItem" id="lock">
+                <property name="label">LOCK</property>
+            </object>
+        </child>
+      <child>
+            <object class="GtkMenuItem" id="logout">
                 <property name="label">LOG OUT</property>
             </object>
         </child>
@@ -12,12 +16,6 @@
                 <property name="label">SUSPEND</property>
             </object>
         </child> -->
-        <!-- <child>
-            <object class="GtkMenuItem" id="hibernat">
-                <property name="label">HIBERNATE</property>
-            </object>
-        </child> -->
-      
         <child>
             <object class="GtkMenuItem" id="reboot">
                 <property name="label">REBOOT</property>
