@@ -1,7 +1,7 @@
 * {
-    primary: #97ccf9;
-    secondary: #d4e4f6;
-    surface: #101417;    
-    outline: #8b9198;    
-    background: #101417;    
+    primary: #e4c36c;
+    secondary: #f2e1bb;
+    surface: #16130b;    
+    outline: #989080;    
+    background: #16130b;    
 }

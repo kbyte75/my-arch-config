@@ -33,9 +33,9 @@
 
   // ========================================  LEFT SECTION  ========================================
   "custom/logo": {
-    "tooltip": false,
     "format": "",
-    "on-click": "~/.config/rofi/scripts/toggle_launcher.sh",
+    "tooltip": false,
+    "on-click": "~/.config/rofi/scripts/launcher.sh",
     "on-scroll-up": "~/.config/waybar/scripts/brightness.sh up",
     "on-scroll-down": "~/.config/waybar/scripts/brightness.sh down"
   },
@@ -44,6 +44,7 @@
   "custom/title": {
     "interval": 1,
     "format": "{text}",
+    "tooltip": false,
     "return-type": "text",
     "exec": "~/.config/waybar/scripts/window.sh",
     "on-scroll-up": "~/.config/waybar/scripts/brightness.sh up",
@@ -133,7 +134,7 @@
     "tooltip": true,
     "format": "\udb86\udcf5",
     "tooltip-format": "SCREENSHOT",
-    "on-click": "grim -g \"$(slurp)\" ~/Pictures/Screenshots/$(date +'%Y-%m-%d_%H-%M-%S').png"
+    "on-click": "hyprshot -m region -f Pictures/Screenshots/$(date +'%Y-%m-%d_%H-%M-%S').png"
   },
 
   "clock": {

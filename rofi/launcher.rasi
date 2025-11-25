@@ -22,15 +22,15 @@ window {
     location:                    center;
     anchor:                      center;
     fullscreen:                  false;
-    width:                       800px;
+    width:                       700px;
     x-offset:                    0px;
     y-offset:                    0px;
-
-    /* properties for all widgets */
     enabled:                     true;
-    border-radius:               12px;
+    border-color: @outline;
+    border: 1px;
+    border-radius:               16px;
     cursor:                      "default";
-    background-color:            @outline;
+    background-color:            rgba(40, 40, 40, 0.9);
 }
 
 /*****----- Main Box -----*****/
@@ -66,7 +66,7 @@ textbox-prompt-colon {
     vertical-align:              0.5;
     padding: 0 16px;
     border-radius:               8px;
-    background-color:            @secondary;
+    background-color:            @outline;
     text-color:                  @background;
 }
 entry {
@@ -76,10 +76,10 @@ entry {
     vertical-align:              0.5;
     padding:                     10px 16px;
     border-radius:               8px;
-    background-color:            @secondary;
+    background-color:            @outline;
     cursor:                      text;
     placeholder:                 "Search";
-    text-color: @surface;
+    text-color: @background;
 }
 dummy {
     expand:                      true;
@@ -108,7 +108,7 @@ element {
     enabled:                     true;
     spacing:                     10px;
     padding:                     14px 10px;
-    border-radius:               8px;
+    border-radius:               12px;
     background-color:            rgba(255, 255, 255, 0.12);
     cursor:                      pointer;
     orientation:                 vertical;
@@ -116,7 +116,7 @@ element {
 
 
 element selected.normal {
-    background-color:            @secondary;
+    background-color:            @outline;
 }
 element selected.active {
     background-color:            @surface;

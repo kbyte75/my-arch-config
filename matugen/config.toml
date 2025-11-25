@@ -6,7 +6,7 @@ set = true
 [templates.hyprland]
 input_path = '~/.config/matugen/templates/hyprland-colors.conf'
 output_path = '~/.config/hypr/colors.conf'
-post_hook = 'hyprctl reload'
+post_hook = "sed -i 's/#//g' ~/.config/hypr/colors.conf && hyprctl reload"
 
 [templates.waybar]
 input_path = '~/.config/matugen/templates/colors.css'
@@ -21,16 +21,6 @@ post_hook = 'pkill -SIGUSR1 kitty'
 [templates.hypremoji]
 input_path = '~/.config/matugen/templates/hypremoji.css'
 output_path = '~/.config/hypremoji/style.css'
-
-[templates.gtk3]
-input_path = '~/.config/matugen/templates/gtk-colors.css'
-output_path = '~/.config/gtk-3.0/colors.css'
-post_hook = 'gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3'
-
-
-[templates.gtk4]
-input_path = '~/.config/matugen/templates/gtk-colors.css'
-output_path = '~/.themes/custom-gtk-theme/gtk-4.0/colors.css'
 
 [templates.rofi]
 input_path = '~/.config/matugen/templates/rofi-colors.rasi'
