@@ -1,0 +1,16 @@
+# replace Theme value from terminal 
+sed -i 's/Theme=.*/Theme=MacTahoe/' ~/.config/kdeglobals  
+sed -i 's/icon_theme=.*/icon_theme=MacTahoe/' ~/.config/qt6ct/qt6ct.conf  
+sed -i 's/iconslight=.*/iconslight=MacTahoe/' ~/.config/kde-material-you-colors/config.conf
+sed -i 's/iconsdark=.*/iconsdark=MacTahoe/' ~/.config/kde-material-you-colors/config.conf
+
+# ROUND IMAGE CORNERS USING IMAGEMAGICK THIS ARE PERCENTAGE %[fx:w*0.15]
+magick input.png \
+    \( +clone -alpha extract \
+       -draw "fill black polygon 0,0 0,%[fx:w*0.15] %[fx:w*0.15],0 fill white circle %[fx:w*0.15],%[fx:w*0.15] %[fx:w*0.15],0" \
+       \( +clone -flip \) -compose Multiply -composite \
+       \( +clone -flop \) -compose Multiply -composite \
+    \) -alpha off -compose CopyOpacity -composite output.png
+
+# PREVIEW SDDM LOGIN THEME WITHOUT REBOOT
+sddm-greeter-qt6 --test-mode --theme /theme_dir/
